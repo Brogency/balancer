@@ -46,7 +46,11 @@
     }
     {{end}}
 
-    client_max_body_size 100m;
+    {{if exists (print "/hosts/" . "/client_max_body_size")}}
+      client_max_body_size  {{getv (print "/hosts/" . "/client_max_body_size")}};
+    {{else}}
+        client_max_body_size 100m;
+    {{end}}
 
     location / {
       proxy_pass        http://{{.}};
