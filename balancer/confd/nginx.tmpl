@@ -43,6 +43,8 @@
     {{if exists (print "/hosts/" . "/media")}}
     location /media {
       root {{getv (print "/hosts/" . "/media")}} ;
+      access_log off;
+      expires 7d;
     }
     {{end}}
 
