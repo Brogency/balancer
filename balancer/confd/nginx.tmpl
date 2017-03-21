@@ -44,7 +44,7 @@
     location /media {
       root {{getv (print "/hosts/" . "/media")}} ;
       access_log off;
-      expires 7d;
+      expires max;
     }
     {{end}}
 
