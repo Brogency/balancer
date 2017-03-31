@@ -23,7 +23,7 @@
       server_name  {{.}}.localhost;
     {{end}}
 
-    rewrite ^ https://$server_name$request_uri? permanent;
+    return 301 https://$host$request_uri;
   }
 
   server {
@@ -98,3 +98,4 @@
     }
   }
 {{end}}
+
